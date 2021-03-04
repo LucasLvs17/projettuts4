@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="icon" type="image/jpg" href="../static/img/camera.png" />
+    <title>Système de Video Surveillance</title>
+    <info charset="utf-8">
+        <script src="https://kit.fontawesome.com/c88302425e.js" crossorigin="anonymous"></script>
+        <link id="theme-style" rel="stylesheet" href="../static/css/style.css">
+    </info>
+</head>
+
+<body>
+        <h1 id="titre"> Système de Vidéo Surveillance avec un Raspberry Pi </h1>
+        <section class="streaming">
+            <h3>Flux vidéo</h3>
+            <div class="videos">
+            <img id="camera" name="ImageLive" src="../static/img/video.JPG" alt="Live Feed" title="Stream" controls=true>
+            <video id="video" name="CameraLive" src="" alt="Video Feed" title="Video" controls=true></video>
+           </div>
+        </section>
+
+
+                    <div class="btn">
+                    <button class="modal-btn">Paramètres  <i class="fas fa-cog"></i></button>
+                    <button class="modal-btnsnap">Snaps <i class="fas fa-photo-video"></i></button>
+                    <button type="button" onclick="goLive()" value="live" id="live">Live <i class="fas fa-play-circle"></i></button>
+                    </btn>
+
+                    <div class="config">
+
+                    <div class="modal-bg">
+                            <div class="modal">
+                                <h1 class="header">Changer la Configuration</h1>
+                                <form method="post" action="/test/">
+                                    <ul>
+                                        <li><label>LiveURL</label>
+                                            <input type="text" id="LiveURL" name="videolive" value="rtsp://192.168.100.60:8080/video" placeholder="Lien du live">
+                                        </li>
+                                        <li> <label>LogLevel</label>
+                                        <select name="loglevel" id="loglevel">
+                                            <option name="loglevel" value="INFO">INFO
+                                            </option>
+                                            <option name="loglevel" value="WARNING">WARNING
+                                            </option>
+                                            <option name="loglevel" value="ERROR">ERROR
+                                            </option>
+                                            <option name="loglevel" value="DEBUG">DEBUG
+                                            </option>
+                                        </select>
+                                        </li>
+                                        <li> <label>Detection</label>
+                                            <input type="radio" id="detectionOn" name="detection" value="On"> On
+                                            <input type="radio" id="detectionOff" name="detection" value="Off"> Off
+                                        </li>
+                                        <li><label>Streaming</label>
+                                             <input type="radio" id="StreamingOn" name="streaming" value="On"> On
+                                             <input type="radio" id="StreamingOff" name="streaming" value="Off"> Off
+                                        </li>
+                                        <li><label>Recording</label>
+                                            <input type="radio" id="RecordingOn" name="recording" value="On"> On
+                                             <input type="radio" id="RecordingOff" name="recording" value="Off"> Off
+                                        </li>
+                                        <li><label>JeedomAlerting</label>
+                                            <input type="radio" id="JeedomAlertingOn" name="jeedomAlerting" value="On"> On
+                                             <input type="radio" id="JeedomAlertingOff" name="jeedomAlerting" value="Off"> Off
+                                        </li>
+                                        <li><label>PurgeTime</label>
+                                            <input type="text" id="PurgeTime" name="purgeTime" value="180" placeholder="Nombre de jours">
+                                        </li>
+                                    </ul>
+                                    <button type="submit" "value="valider">Valider</input>
+                                    </form>
+                                    <div class="btnsnap">
+<button type="buttonan" class="btnan" value="annuler">Annuler</button>
+
+                                </div>
+                                    <span class="modal-close">X</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <scroll-container>
+                    <div class="modal-bgsnap">
+                        <div class="modalsnap">
+                            <h1 class="titresnap">Liste des Snaps</h1>
+                                    <div class="snap">
+                                        <img class="snap1" onclick="v1()" src="../static/img/20210228-230002-014525.jpg">
+                                        <div>
+                                            <p class="nom" onclick="v1()">Nom du fichier : 20210228-230002-014525.avi</p>
+                                            <p>Date : 28/02/2021</p>
+                                            <p>Heure : 23H00</p>
+                                            </div>
+                                    </div>
+                                    <div class="snap">
+                                        <img class="snap2" onclick="v2()" src="../static/img/20210220-200002-104887.jpg">
+                                        <div>
+                                        <p class="nom" onclick="v2()">Nom du fichier : 20210220-200002-104887.avi</p>
+                                        <p>Date : 20/02/2021</p>
+                                        <p>Heure : 20H00</p>
+                                        </div>
+                                    </div>
+                                    <div class="snap">
+                                        <img class="snap3" onclick="v3()" src="../static/img/20210220-101010-254687.jpg">
+                                        <div>
+                                        <p class="nom" onclick="v3()">Nom du fichier : 20210220-101010-254687.avi</p>
+                                        <p>Date : 20/02/2021</p>
+                                        <p>Heure : 10H10</p>
+                                        </div>
+                                    </div>
+                                    <div class="snap">
+                                        <img class="snap4" onclick="v4()" src="../static/img/20210217-053115-173589.jpg">
+                                        <div>
+                                        <p class="nom" onclick="v4()">Nom du fichier : 20210217-053115-173589.avi</p>
+                                        <p>Date : 17/02/2021</p>
+                                        <p>Heure : 05H31</p>
+                                        </div>
+                                        <span class="modal-closesnap">X</span>
+                                    </div>
+                        </div>
+                    </div>
+                    </scroll-container>
+    <p class="nous">Développé par Alexy, Maxence, Sylvio et Lucas</p>
+
+    <script src="../static/js/Camera.js"></script>
+    <script src="../static/js/modal.js"></script>
+
+</body>
+
+</html>
