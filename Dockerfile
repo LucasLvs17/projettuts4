@@ -7,8 +7,6 @@ RUN git clone --recursive https://github.com/skvark/opencv-python.git /opencv-py
 
 RUN ENABLE_HEADLESS=1 pip wheel /opencv-python --verbose
 
-CMD pip3.9 install /opencv-python
-
 ENV FLASK_ENV=production
 
 ADD . /srv/
