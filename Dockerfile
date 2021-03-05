@@ -1,6 +1,7 @@
 FROM python:3.9-slim-buster
 
-RUN ENABLE_HEADLESS=1 pip wheel /opencv-python --verbose
+COPY requirements.txt requirements.txt
+RUN pip3.9 install -r requirements.txt
 
 ENV FLASK_ENV=production
 
